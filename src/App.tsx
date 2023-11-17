@@ -39,21 +39,24 @@ function App() {
 
   // Start app right away with user ID and API key from URL params
   const urlUserId = window.location.search.split("?userId=")[1];
-  const realurlUserId = urlUserId.split("&userapiKey=")[0];
-  const urlUserApiKey = window.location.search.split("&userapiKey=")[1];
 
-  // Fill form fields one by one from url params
-  if (urlUserId && realurlUserId !== userId) {
-    setUserId(realurlUserId);
-  }
+  if (urlUserId) {
+    const realurlUserId = urlUserId.split("&userapiKey=")[0];
+    const urlUserApiKey = window.location.search.split("&userapiKey=")[1];
 
-  if (urlUserApiKey && urlUserApiKey !== userApiKey) {
-    setUserApiKey(urlUserApiKey);
-  }
+    // Fill form fields one by one from url params
+    if (urlUserId && realurlUserId !== userId) {
+      setUserId(realurlUserId);
+    }
 
-  // If both fields are filled, submit form
-  if (urlUserId && urlUserApiKey && appState === AppState.PROMPT_FOR_USER_CREDS) {
-    setAppState(AppState.USER_INPUT_ACCEPTED);
+    if (urlUserApiKey && urlUserApiKey !== userApiKey) {
+      setUserApiKey(urlUserApiKey);
+    }
+
+    // If both fields are filled, submit form
+    if (urlUserId && urlUserApiKey && appState === AppState.PROMPT_FOR_USER_CREDS) {
+      setAppState(AppState.USER_INPUT_ACCEPTED);
+    }
   }
 
   if (
