@@ -225,8 +225,13 @@ body .symbol {
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
+  body,
   .App {
     background-color: #000;
+    color: #fff;
+  }
+
+  a {
     color: #fff;
   }
 }
