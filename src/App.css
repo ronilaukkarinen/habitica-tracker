@@ -44,14 +44,17 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .app-controls .date-header {
   color: #757575;
   display: flex;
-  flex-direction: column;
   font-size: 1.3em;
+  justify-content: center;
   margin-left: 12px;
+  position: absolute;
+  width: 100%;
 }
 
 /* Summary Section */
@@ -104,6 +107,8 @@ th {
 
 .link {
   color: #36b;
+  position: relative;
+  z-index: 2;
 }
 
 .link:hover,
@@ -233,5 +238,9 @@ body .symbol {
 
   a {
     color: #fff;
+  }
+
+  .link {
+    color: rgb(86 133 212);
   }
 }
